@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MusicPlanner</string>
+
+    <string name="n001_button_chords_generator">generate chords</string>
+</resources>
