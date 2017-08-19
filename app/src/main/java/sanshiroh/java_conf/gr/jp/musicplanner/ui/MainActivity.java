@@ -11,6 +11,7 @@ import sanshiroh.java_conf.gr.jp.musicplanner.model.ChordsGenerator;
 import sanshiroh.java_conf.gr.jp.musicplanner.R;
 
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
     private RecyclerAdapter mAdapter;
 
     private final ChordsGenerator mChordsGenerator = new ChordsGenerator();
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView mRecyclerView = findViewById(R.id.recycler_view_sections);
+        mRecyclerView = findViewById(R.id.recycler_view_sections);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new RecyclerAdapter();
         mRecyclerView.setAdapter(mAdapter);
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAdapter.add(mChordsGenerator.generate());
+                mRecyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
             }
         });
     }
